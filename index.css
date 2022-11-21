@@ -13,3 +13,9 @@ overflow: hidden;
     width: 50px;
     height: 50px;
 }
+.content-container{
+    border-bottom: 0.5px solid black;
+}
+a{
+    text-un:none ;
+}

@@ -14,10 +14,12 @@ let getThumb = async function (params) {
 let input = document.querySelector(".form-control")
 let suggestBar = document.getElementById("search-suggest")
 input.addEventListener("input", () => {
-    let string = ""
+    if(input.value !=""){
+        suggestBar.style.display="block"
+        let string = ""
     getKeyword(input.value)
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             for (let index = 0; index < data[1].length; index++) {
 
                 getThumb(data[1][index])
@@ -37,16 +39,21 @@ input.addEventListener("input", () => {
                         }
                         console.log(des);
                         console.log(thumbn);
-                        string += `
+                        string += `<a  href="${data[3][index]}" target="_blank">
             <div>${data[1][index]}</div>
-            <div><img src="${thumbn}" class="img">${des}</div>
+            <div class="content-container"><img src="${thumbn}" class="img">${des}</div>
+            </a>
             `
                         suggestBar.innerHTML = string
                     })
+
             }
-            console.log(string);
+            // console.log(string);
 
         })
+    }else{
+        suggestBar.style.display="none"
+    }
 })
 // function getData(url, fn) {
 //     var xhr = new XMLHttpRequest();
