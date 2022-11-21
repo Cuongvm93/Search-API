@@ -14,7 +14,7 @@ let getThumb = async function (params) {
 let input = document.querySelector(".form-control")
 let suggestBar = document.getElementById("search-suggest")
 input.addEventListener("input", () => {
-    if(input.value !=""){
+    if(input.value.trim() !==""){
         suggestBar.style.display="block"
         let string = ""
     getKeyword(input.value)
